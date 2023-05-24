@@ -1,0 +1,13 @@
+body {
+  background-image: url('gingerbread.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.text {
+    color: white;
+    text-align: center;
+    font-family: 'Pangolin', cursive;
+    font-weight: bold;
+}

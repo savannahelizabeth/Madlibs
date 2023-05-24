@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Example</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
+</head>
+<body class="text">
+    <h1> GINGERBREAD MADLIBS</h1>
+    <form id="myForm">
+    <label for="name">Things (plural):</label>
+    <input type="text" id="name" name="name"><br><br>
+
+<label for="message">Verb: </label>
+<textarea id="message" name="message"></textarea><br><br>
+
+<label for="color">Adjective:</label> 
+<select id="color" name="color">
+<option value="adorable">Adorable</option>
+<option value="cheerful">Cheerful</option>
+<option value="lazy">Lazy</option>
+</select><br>
+<br>
+<br>
+
+<label for="snack">Animal:</label>
+<input type="radio" id="dog" name="snack" value="dog">
+<label for="dog">Dog</label>
+<input type="radio" id="cat" name="snack" value="cat">
+<label for="cat">Cat</label><br>
+
+<br>
+
+<br>
+
+<label for="fruit">Animal (please choose one):</label>
+<input type="checkbox" id="bird" name="fruit" value="bird">
+<label for="bird">Bird</label>
+<input type="checkbox" id="snake" name="fruit" value="snake">
+<label for= "snake">Snake</label>
+<input type="checkbox" id="cheetah" name="fruit" value="cheetah">
+<label for="cheetah">Cheetah</label><br>
+
+<br>
+
+<br>
+
+<input type="submit" value="Submit">
+</form>
+<br>
+
+<div id="formContents"></div>
+
+<script>
+
+var form = document.getElementById("myForm");
+form.addEventListener("submit", function(event) { 
+event.preventDefault();
+var name = document.getElementById("name").value;
+var message = document.getElementById("message").value;
+var color = document.getElementById("color").value;
+var snack = document.querySelector('input[name="snack"]:checked').value;
+var fruits = document.querySelectorAll('input[name="fruit"]:checked');
+var fruitsSelected = "";
+
+for (var i = 0; i < fruits.length; i++) {
+    if (i > 0) {
+    fruitsSelected += ", ";
+    }
+    fruitsSelected += fruits[i].value;
+}
+
+var formContents = document.getElementById("formContents");
+formContents.innerHTML = "There once was a gingerbread man who had two " + name + 
+                            " for eyes and a gumdrop for a nose. He always said, ' " + message +
+                            " as fast as you can, you can't catch me I'm the gingerbread man.' One day he ran past a " + color +
+                            " " + snack +
+                            ", but they couldn't catch him. He kept running until he passed a " + fruitsSelected + 
+                            " but they couldn't catch him either.";
+});
+</script>
+</body>
+</html>
